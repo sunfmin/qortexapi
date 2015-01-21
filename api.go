@@ -1,7 +1,5 @@
 package qortexapi
 
-import "io"
-
 type PublicService interface {
 	GetSession(email string, password string, locale string) (session string, err error)
 	GetSessionByToken(token string, locale string) (session string, err error)
@@ -310,10 +308,6 @@ type AuthUserService interface {
 	//payment
 	GetPaymentSession() (session string, err error)
 	CanSeeBilling() (yes bool, err error)
-	GetBillingInfo() (billing *BillingInfo, err error)
-	GetReceiptInfo(id string) (receipt *ReceiptInfo, err error)
-	SyncBilling() (err error)
-	SyncBillingDetails() (err error)
 	// SyncPastPayments() (err error)
 	ValidatePayment() (err error)
 	CancelSubscription() (err error)
@@ -325,8 +319,6 @@ type AuthUserService interface {
 	GetInitInfo() (info *InitInfo, err error)
 	GetNewInitInfo() (info *InitInfo, err error)
 
-	// Files
-	UploadFile(entryId string, gId string, fileName string, contentType string, file io.Reader) (apiAtt *Attachment, err error)
 	// DeleteFile(fileId string) (err error)
 	DeleteFile(groupId string, attachmentId string, ownerId string) (attachments []*Attachment, err error)
 

@@ -5,8 +5,6 @@ import (
 	"time"
 
 	"labix.org/v2/mgo/bson"
-
-	paymentapi "github.com/theplant/theplant_payment/api"
 )
 
 type OrgSettings struct {
@@ -1244,54 +1242,6 @@ type SupportedLanguage struct {
 	StoreKey    string
 	DisplayText string
 	IsCurrent   bool
-}
-
-type BillingInfo struct {
-	IsSharedGroupAccount bool
-	IsFreeAccount        bool
-	IsProAccount         bool
-	FreeTrialLeftDays    int
-	ExpiredLeftDays      int
-	ActiveUserCount      int
-	FreeUserLimit        int
-	Country              string
-	Phone                string
-	Billing              *paymentapi.Billing
-	BillingDetails       *paymentapi.BillingDetails
-	PastPayments         []paymentapi.Payment
-	Package              *paymentapi.Package
-	CurrencySymbol       string
-	MonthlyPrice         int
-	HasWaitingBilling    bool
-	HasSubscribedBilling bool
-	HasPaidBilling       bool
-	IsOverdue            bool
-	DismissPaymentTips   bool
-	PrefixURL            string
-	FreeTrialDays        int
-
-	//Date display related
-	PackageExpiredAt                 string
-	PackageSubscribedNextPaymentDate string
-}
-
-type ReceiptInfo struct {
-	Id          string
-	OrgName     string
-	OrgAdress   string
-	OrgCountry  string
-	PaymentTerm string
-	UserCount   int
-	PaymentDate string
-	PriceUnit   string
-	Cost        string
-	Tax         string
-
-	// for jp
-	CostWithoutTax string
-	YearOrMonth    string
-	// for countries ,not jp ,de
-	CurrencySymbol string
 }
 
 type KnowledgeOverview struct {
